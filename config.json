@@ -12,6 +12,15 @@
 			"gametests": {
 				"url": "github.com/Bedrock-OSS/regolith-filters",
 				"version": "1.5.3"
+			},
+			"jsonte": {
+				"url": "github.com/MCDevKit/regolith-library",
+				"version": "2.13.1"
+			},
+			"texture_gen": {
+				"requirements": "./filters/texture_gen/requirements.txt",
+				"runWith": "python",
+				"script": "./filters/texture_gen/main.py"
 			}
 		},
 		"profiles": {
@@ -24,6 +33,9 @@
 				},
 				"filters": [
 					{
+						"filter": "jsonte"
+					},
+					{
 						"filter": "gametests",
 						"settings": {
 							"buildOptions": {
@@ -34,6 +46,9 @@
 								"@minecraft/server@1.8.0"
 							]
 						}
+					},
+					{
+						"filter": "texture_gen"
 					}
 				]
 			}

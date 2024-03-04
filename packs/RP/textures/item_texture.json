@@ -3,9 +3,55 @@
     "texture_name" : "atlas.items",
     "texture_data": {
         "roamwear:backpack": {
-            "textures": [
-                "textures/items/rw_backpack"
-            ]
+            "textures": [ "textures/items/rw_backpack" ]
+        },
+        "roamwear:backpack_white": {
+            "textures": [ "textures/items/rw_backpack_white" ]
+        },
+        "roamwear:backpack_orange": {
+            "textures": [ "textures/items/rw_backpack_orange" ]
+        },
+        "roamwear:backpack_magenta": {
+            "textures": [ "textures/items/rw_backpack_magenta" ]
+        },
+        "roamwear:backpack_light_blue": {
+            "textures": [ "textures/items/rw_backpack_light_blue" ]
+        },
+        "roamwear:backpack_yellow": {
+            "textures": [ "textures/items/rw_backpack_yellow" ]
+        },
+        "roamwear:backpack_lime": {
+            "textures": [ "textures/items/rw_backpack_lime" ]
+        },
+        "roamwear:backpack_pink": {
+            "textures": [ "textures/items/rw_backpack_pink" ]
+        },
+        "roamwear:backpack_gray": {
+            "textures": [ "textures/items/rw_backpack_gray" ]
+        },
+        "roamwear:backpack_silver": {
+            "textures": [ "textures/items/rw_backpack_silver" ]
+        },
+        "roamwear:backpack_cyan": {
+            "textures": [ "textures/items/rw_backpack_cyan" ]
+        },
+        "roamwear:backpack_purple": {
+            "textures": [ "textures/items/rw_backpack_purple" ]
+        },
+        "roamwear:backpack_blue": {
+            "textures": [ "textures/items/rw_backpack_blue" ]
+        },
+        "roamwear:backpack_brown": {
+            "textures": [ "textures/items/rw_backpack_brown" ]
+        },
+        "roamwear:backpack_green": {
+            "textures": [ "textures/items/rw_backpack_green" ]
+        },
+        "roamwear:backpack_red": {
+            "textures": [ "textures/items/rw_backpack_red" ]
+        },
+        "roamwear:backpack_black": {
+            "textures": [ "textures/items/rw_backpack_black" ]
         },
         "roamwear:quiver": {
             "textures": [

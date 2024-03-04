@@ -1,0 +1,19 @@
+{
+    "$copy": "BP/items/backpack.json",
+    "$files": {
+        "array": "colours",
+        "fileName": "backpack_{{colour}}.bpe"
+    },
+    "$template": {
+        "minecraft:item": {
+            "description": {
+                "identifier": "roamwear:backpack_{{colour}}"
+            },
+            "components": {
+                "minecraft:icon": {
+                    "texture": "roamwear:backpack_{{colour}}"
+                }
+            }
+        }
+    }
+}

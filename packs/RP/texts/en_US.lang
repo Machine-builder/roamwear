@@ -1,3 +1,22 @@
 item.roamwear:backpack=Backpack
-item.roamwear:quiver=Quiver
+item.roamwear:backpack_white=White Backpack
+item.roamwear:backpack_orange=Orange Backpack
+item.roamwear:backpack_magenta=Magenta Backpack
+item.roamwear:backpack_light_blue=Light Blue Backpack
+item.roamwear:backpack_yellow=Yellow Backpack
+item.roamwear:backpack_lime=Lime Backpack
+item.roamwear:backpack_pink=Pink Backpack
+item.roamwear:backpack_gray=Gray Backpack
+item.roamwear:backpack_silver=Silver Backpack
+item.roamwear:backpack_cyan=Cyan Backpack
+item.roamwear:backpack_purple=Purple Backpack
+item.roamwear:backpack_blue=Blue Backpack
+item.roamwear:backpack_brown=Brown Backpack
+item.roamwear:backpack_green=Green Backpack
+item.roamwear:backpack_red=Red Backpack
+item.roamwear:backpack_black=Black Backpack
+
 action.roamwear.backpack.pickup=Pickup Backpack
+action.roamwear.backpack.dye=Dye Backpack
+
+item.roamwear:quiver=Quiver

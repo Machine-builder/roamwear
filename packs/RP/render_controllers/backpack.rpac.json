@@ -1,0 +1,39 @@
+{
+    "format_version": "1.20.41",
+    "render_controllers": {
+        "controller.render.roamwear.backpack": {
+            "arrays": {
+                "textures": {
+                    "Array.color": [
+                        "Texture.undyed",
+                        "Texture.white",
+                        "Texture.orange",
+                        "Texture.magenta",
+                        "Texture.light_blue",
+                        "Texture.yellow",
+                        "Texture.lime",
+                        "Texture.pink",
+                        "Texture.gray",
+                        "Texture.silver",
+                        "Texture.cyan",
+                        "Texture.purple",
+                        "Texture.blue",
+                        "Texture.brown",
+                        "Texture.green",
+                        "Texture.red",
+                        "Texture.black"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "Array.color[v.color]"
+            ]
+        }
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "colours": [
+        {
+            "colour_id": 0,
+            "colour": "white"
+        },
+        {
+            "colour_id": 1,
+            "colour": "orange"
+        },
+        {
+            "colour_id": 2,
+            "colour": "magenta"
+        },
+        {
+            "colour_id": 3,
+            "colour": "light_blue"
+        },
+        {
+            "colour_id": 4,
+            "colour": "yellow"
+        },
+        {
+            "colour_id": 5,
+            "colour": "lime"
+        },
+        {
+            "colour_id": 6,
+            "colour": "pink"
+        },
+        {
+            "colour_id": 7,
+            "colour": "gray"
+        },
+        {
+            "colour_id": 8,
+            "colour": "silver"
+        },
+        {
+            "colour_id": 9,
+            "colour": "cyan"
+        },
+        {
+            "colour_id": 10,
+            "colour": "purple"
+        },
+        {
+            "colour_id": 11,
+            "colour": "blue"
+        },
+        {
+            "colour_id": 12,
+            "colour": "brown"
+        },
+        {
+            "colour_id": 13,
+            "colour": "green"
+        },
+        {
+            "colour_id": 14,
+            "colour": "red"
+        },
+        {
+            "colour_id": 15,
+            "colour": "black"
+        }
+    ]
+}

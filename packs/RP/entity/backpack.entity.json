@@ -7,12 +7,31 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/rw_backpack"
+        "undyed": "textures/entity/rw_backpack",
+        "white": "textures/entity/rw_backpack_white",
+        "orange": "textures/entity/rw_backpack_orange",
+        "magenta": "textures/entity/rw_backpack_magenta",
+        "light_blue": "textures/entity/rw_backpack_light_blue",
+        "yellow": "textures/entity/rw_backpack_yellow",
+        "lime": "textures/entity/rw_backpack_lime",
+        "pink": "textures/entity/rw_backpack_pink",
+        "gray": "textures/entity/rw_backpack_gray",
+        "silver": "textures/entity/rw_backpack_silver",
+        "cyan": "textures/entity/rw_backpack_cyan",
+        "purple": "textures/entity/rw_backpack_purple",
+        "blue": "textures/entity/rw_backpack_blue",
+        "brown": "textures/entity/rw_backpack_brown",
+        "green": "textures/entity/rw_backpack_green",
+        "red": "textures/entity/rw_backpack_red",
+        "black": "textures/entity/rw_backpack_black"
       },
       "geometry": {
         "default": "geometry.roamwear.backpack"
       },
       "scripts": {
+        "pre_animation": [
+          "v.color=q.property('roamwear:color')+1;"
+        ],
         "animate": [
           "on_ground"
         ]
@@ -20,7 +39,7 @@
       "animations": {
         "on_ground": "animation.roamwear.backpack.on_ground"
       },
-      "render_controllers": [ "controller.render.default" ],
+      "render_controllers": [ "controller.render.roamwear.backpack" ],
       "enable_attachables": false
     }
   }

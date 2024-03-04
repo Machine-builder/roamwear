@@ -1,0 +1,21 @@
+{
+    "$copy": "RP/attachables/backpack.attachable.json",
+    "$files": {
+        "array": "colours",
+        "fileName": "backpack_{{colour}}.bpe"
+    },
+    "$template": {
+        "format_version": "1.10.0",
+        "minecraft:attachable": {
+            "description": {
+                "identifier": "roamwear:backpack_{{colour}}.attachable",
+                "$item": {
+                    "roamwear:backpack_{{colour}}": "1.0"
+                },
+                "textures": {
+                    "default": "textures/entity/rw_backpack_{{colour}}"
+                }
+            }
+        }
+    }
+}

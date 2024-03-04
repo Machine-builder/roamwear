@@ -1,14 +1,41 @@
 
 
 import { Logger } from "@bedrock-oss/bedrock-boost";
-import { BlockInventoryComponent, BlockPermutation, Container, Entity, EntityEquippableComponent, EntityHealthComponent, EntityInventoryComponent, EntityItemComponent, EquipmentSlot, ItemStack, Player, system, world } from "@minecraft/server";
+import { BlockInventoryComponent, BlockPermutation, Container, Entity, EntityEquippableComponent, EntityHealthComponent, EntityInventoryComponent, EntityItemComponent, EquipmentSlot, ItemStack, Player, Vector3, system, world } from "@minecraft/server";
 import { structureLoad, structureSave } from "./mlib/structure";
 import { createRandomStringId } from "./mlib/random";
 import { hideLoreString, unhideLoreString } from "./mlib/loreText";
+import { colorNameToIndex } from "./mlib/color";
+import { playSound } from "./mlib/playSound";
 
 const moduleLogger = Logger.getLogger("backpack.ts");
 
 const BackpackIdLength = 8;
+const BackpackItemIds = [
+    "roamwear:backpack",
+    "roamwear:backpack_white",
+    "roamwear:backpack_orange",
+    "roamwear:backpack_magenta",
+    "roamwear:backpack_light_blue",
+    "roamwear:backpack_yellow",
+    "roamwear:backpack_lime",
+    "roamwear:backpack_pink",
+    "roamwear:backpack_gray",
+    "roamwear:backpack_silver",
+    "roamwear:backpack_cyan",
+    "roamwear:backpack_purple",
+    "roamwear:backpack_blue",
+    "roamwear:backpack_brown",
+    "roamwear:backpack_green",
+    "roamwear:backpack_red",
+    "roamwear:backpack_black"
+];
+const SoundPlacement = "armor.equip_leather";
+const SoundPickup = "random.pop";
+
+function getBackpackColorNameFromItemTypeId(backpackTypeId: string) {
+    return backpackTypeId.slice(18);
+}
 
 function createNewBackpackId(): string {
     return createRandomStringId(BackpackIdLength);
@@ -90,8 +117,17 @@ function pickupBackpack(entity: Entity) {
         // Set the block back to whatever it was before the barrel
         block.setPermutation(blockBeforePermutation);
 
+        // Get the item typeId from the backpack's colour
+        // @ts-ignore
+        const color: number = entity.getProperty("roamwear:color") ?? -1;
+        let itemTypeId = "roamwear:backpack";
+        if (color > -1) {
+            const colorName = [ "white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "silver", "cyan", "purple", "blue", "brown", "green", "red", "black" ][color];
+            itemTypeId = `roamwear:backpack_${colorName}`;
+        }
+
         // Spawn an item with the id in the lore text
-        const itemStack = new ItemStack("roamwear:backpack", 1);
+        const itemStack = new ItemStack(itemTypeId, 1);
         itemStack.setLore(
             [
                 hideLoreString(backpackId),
@@ -104,22 +140,31 @@ function pickupBackpack(entity: Entity) {
             entity.location
         );
 
+        // Play a pop sound
+        playSound(entity.dimension, SoundPickup, "@a", entity.location);
+
         // Despawn the entity
         entity.remove();
     }
 };
 
-function spawnBackpack(player: Player, itemStack: ItemStack) {
+function getBackpackPlacementLocation(player: Player): Vector3 | undefined {
+    let placeAt = player.location;
+    const hitResult = player.getBlockFromViewDirection({maxDistance: 7});
+    if (hitResult !== undefined) {
+        return {
+            x: hitResult.block.x+hitResult.faceLocation.x,
+            y: hitResult.block.y+hitResult.faceLocation.y,
+            z: hitResult.block.z+hitResult.faceLocation.z
+        }
+    } else {
+        return undefined;
+    }
+}
+
+function spawnBackpack(player: Player, itemStack: ItemStack, placementLocation: Vector3) {
     const loreLines = itemStack.getLore();
     let loreFirstLine: string | undefined = loreLines[0];
-    let backpackId;
-    let hasSavedStructure = false;
-    if (loreFirstLine === undefined) {
-        backpackId = createNewBackpackId();
-    } else {
-        backpackId = unhideLoreString(loreFirstLine);
-        hasSavedStructure = true;
-    }
     
     const entityBlockLocation = {
         x: Math.floor(player.location.x),
@@ -129,19 +174,18 @@ function spawnBackpack(player: Player, itemStack: ItemStack) {
 
     // Spawn a backpack entity and copy the inventory from the saved structure based on backpackId
 
-    // Find a target location to spawn the backpack
-    let placeAt = player.location;
-    const hitResult = player.getBlockFromViewDirection({maxDistance: 7});
-    if (hitResult !== undefined) {
-        placeAt = {
-            x: hitResult.block.x+hitResult.faceLocation.x,
-            y: hitResult.block.y+hitResult.faceLocation.y,
-            z: hitResult.block.z+hitResult.faceLocation.z
-        }
+    // Separate out the backpack id from the lore lines, or create a new id if there was none
+    let backpackId;
+    let hasSavedStructure = false;
+    if (loreFirstLine === undefined) {
+        backpackId = createNewBackpackId();
+    } else {
+        backpackId = unhideLoreString(loreFirstLine);
+        hasSavedStructure = true;
     }
 
     // Spawn the backpack entity and set its id property to either the id or undefined
-    const entity = player.dimension.spawnEntity("roamwear:backpack", placeAt);
+    const entity = player.dimension.spawnEntity("roamwear:backpack", placementLocation);
     const backpackContainer = entity.getComponent(EntityInventoryComponent.componentId)?.container;
     if (backpackContainer === undefined) { moduleLogger.fatal("spawnBackpack backpackContainer was undefined"); return; }
     setBackpackId(entity, backpackId);
@@ -156,6 +200,13 @@ function spawnBackpack(player: Player, itemStack: ItemStack) {
     const itemStackName = itemStack.nameTag;
     if (itemStackName !== undefined) {
         entity.nameTag = itemStackName;
+    }
+
+    // Set the entity color property according to the item typeId
+    const colorName = getBackpackColorNameFromItemTypeId(itemStack.typeId);
+    if (colorName.length > 0) {
+        const colorIndex = colorNameToIndex(colorName);
+        entity.setProperty("roamwear:color", colorIndex);
     }
 
     if (hasSavedStructure) {
@@ -185,11 +236,16 @@ function spawnBackpack(player: Player, itemStack: ItemStack) {
         block.setPermutation(blockBeforePermutation);
     }
 
+    // Play a placement sound
+    playSound(player.dimension, SoundPlacement, "@a", placementLocation);
+
     // Clear the player's mainhand
     const equipment = player.getComponent(EntityEquippableComponent.componentId);
     equipment?.setEquipment(EquipmentSlot.Mainhand, undefined);
 
     moduleLogger.info(`spawnBackpack successfully spawned backpack with id ${backpackId}`);
+
+    return true;
 }
 
 system.afterEvents.scriptEventReceive.subscribe(function(data) {
@@ -210,13 +266,16 @@ world.afterEvents.entityHitEntity.subscribe(function(data) {
 world.beforeEvents.itemUse.subscribe(function(data) {
     const player = data.source;
     const itemStack = data.itemStack;
-    if (itemStack?.typeId != "roamwear:backpack") return;
+    if (!BackpackItemIds.includes(itemStack?.typeId)) return;
     if (!player.isSneaking) {
-        data.cancel = true;
-        moduleLogger.info(`itemUse triggered and player sneaking, spawn a backpack and cancel event`);
-        // Place the backpack down
-        system.run(() => {
-            spawnBackpack(player, itemStack);
-        });
+        const placementLocation = getBackpackPlacementLocation(player);
+        if (placementLocation !== undefined) {
+            data.cancel = true;
+            moduleLogger.info(`itemUse triggered, player sneaking, and placement found. Spawn a backpack and cancel event`);
+            // Place the backpack down
+            system.run(() => {
+                spawnBackpack(player, itemStack, placementLocation);
+            });
+        }
     }
 });

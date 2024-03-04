@@ -5,7 +5,15 @@
             "identifier": "roamwear:backpack",
             "is_experimental": false,
             "is_spawnable": false,
-            "is_summonable": true
+            "is_summonable": true,
+            "properties": {
+                "roamwear:color": {
+                    "type": "int",
+                    "range": [ -1, 15 ],
+                    "client_sync": true,
+                    "default": -1
+                }
+            }
         },
         "component_groups": {
             "roamwear:despawn": {
@@ -62,6 +70,118 @@
                             }
                         },
                         "interact_text": "action.roamwear.backpack.pickup"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": [
+                                { "all_of": [ { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "white_dye" } ] }
+                            ], "target": "self", "event": "roamwear:color_white"
+                        }, "use_item": false, "interact_text": "action.roamwear.backpack.dye"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": [
+                                { "all_of": [ { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "orange_dye" } ] }
+                            ], "target": "self", "event": "roamwear:color_orange"
+                        }, "use_item": false, "interact_text": "action.roamwear.backpack.dye"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": [
+                                { "all_of": [ { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "magenta_dye" } ] }
+                            ], "target": "self", "event": "roamwear:color_magenta"
+                        }, "use_item": false, "interact_text": "action.roamwear.backpack.dye"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": [
+                                { "all_of": [ { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "light_blue_dye" } ] }
+                            ], "target": "self", "event": "roamwear:color_light_blue"
+                        }, "use_item": false, "interact_text": "action.roamwear.backpack.dye"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": [
+                                { "all_of": [ { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "yellow_dye" } ] }
+                            ], "target": "self", "event": "roamwear:color_yellow"
+                        }, "use_item": false, "interact_text": "action.roamwear.backpack.dye"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": [
+                                { "all_of": [ { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "lime_dye" } ] }
+                            ], "target": "self", "event": "roamwear:color_lime"
+                        }, "use_item": false, "interact_text": "action.roamwear.backpack.dye"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": [
+                                { "all_of": [ { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "pink_dye" } ] }
+                            ], "target": "self", "event": "roamwear:color_pink"
+                        }, "use_item": false, "interact_text": "action.roamwear.backpack.dye"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": [
+                                { "all_of": [ { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "gray_dye" } ] }
+                            ], "target": "self", "event": "roamwear:color_gray"
+                        }, "use_item": false, "interact_text": "action.roamwear.backpack.dye"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": [
+                                { "all_of": [ { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "light_gray_dye" } ] }
+                            ], "target": "self", "event": "roamwear:color_silver"
+                        }, "use_item": false, "interact_text": "action.roamwear.backpack.dye"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": [
+                                { "all_of": [ { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "cyan_dye" } ] }
+                            ], "target": "self", "event": "roamwear:color_cyan"
+                        }, "use_item": false, "interact_text": "action.roamwear.backpack.dye"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": [
+                                { "all_of": [ { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "purple_dye" } ] }
+                            ], "target": "self", "event": "roamwear:color_purple"
+                        }, "use_item": false, "interact_text": "action.roamwear.backpack.dye"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": [
+                                { "all_of": [ { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "blue_dye" } ] }
+                            ], "target": "self", "event": "roamwear:color_blue"
+                        }, "use_item": false, "interact_text": "action.roamwear.backpack.dye"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": [
+                                { "all_of": [ { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "brown_dye" } ] }
+                            ], "target": "self", "event": "roamwear:color_brown"
+                        }, "use_item": false, "interact_text": "action.roamwear.backpack.dye"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": [
+                                { "all_of": [ { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "green_dye" } ] }
+                            ], "target": "self", "event": "roamwear:color_green"
+                        }, "use_item": false, "interact_text": "action.roamwear.backpack.dye"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": [
+                                { "all_of": [ { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "red_dye" } ] }
+                            ], "target": "self", "event": "roamwear:color_red"
+                        }, "use_item": false, "interact_text": "action.roamwear.backpack.dye"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": [
+                                { "all_of": [ { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "black_dye" } ] }
+                            ], "target": "self", "event": "roamwear:color_black"
+                        }, "use_item": false, "interact_text": "action.roamwear.backpack.dye"
                     }
                 ]
             },
@@ -91,6 +211,91 @@
                     "command": [
                         "scriptevent roamwear:pickup"
                     ]
+                }
+            },
+            "roamwear:color_undyed": {
+                "set_property": {
+                    "roamwear:color": -1
+                }
+            },
+            "roamwear:color_white": {
+                "set_property": {
+                    "roamwear:color": 0
+                }
+            },
+            "roamwear:color_orange": {
+                "set_property": {
+                    "roamwear:color": 1
+                }
+            },
+            "roamwear:color_magenta": {
+                "set_property": {
+                    "roamwear:color": 2
+                }
+            },
+            "roamwear:color_light_blue": {
+                "set_property": {
+                    "roamwear:color": 3
+                }
+            },
+            "roamwear:color_yellow": {
+                "set_property": {
+                    "roamwear:color": 4
+                }
+            },
+            "roamwear:color_lime": {
+                "set_property": {
+                    "roamwear:color": 5
+                }
+            },
+            "roamwear:color_pink": {
+                "set_property": {
+                    "roamwear:color": 6
+                }
+            },
+            "roamwear:color_gray": {
+                "set_property": {
+                    "roamwear:color": 7
+                }
+            },
+            "roamwear:color_silver": {
+                "set_property": {
+                    "roamwear:color": 8
+                }
+            },
+            "roamwear:color_cyan": {
+                "set_property": {
+                    "roamwear:color": 9
+                }
+            },
+            "roamwear:color_purple": {
+                "set_property": {
+                    "roamwear:color": 10
+                }
+            },
+            "roamwear:color_blue": {
+                "set_property": {
+                    "roamwear:color": 11
+                }
+            },
+            "roamwear:color_brown": {
+                "set_property": {
+                    "roamwear:color": 12
+                }
+            },
+            "roamwear:color_green": {
+                "set_property": {
+                    "roamwear:color": 13
+                }
+            },
+            "roamwear:color_red": {
+                "set_property": {
+                    "roamwear:color": 14
+                }
+            },
+            "roamwear:color_black": {
+                "set_property": {
+                    "roamwear:color": 15
                 }
             }
         }

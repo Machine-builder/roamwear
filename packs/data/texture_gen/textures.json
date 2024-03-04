@@ -1,0 +1,440 @@
+{
+    "textures": [
+
+
+
+        // Backpack colour variants, both item and entity
+
+        {
+            "base_path": "textures/items/rw_backpack_orange.png",
+            "creates": [
+                {
+                    "path": "textures/items/rw_backpack_black.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 120.0, "s": 0.1, "v": 0.1
+                        },
+                        {
+                            "filter": "contrast", "factor": 3
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/items/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/items/rw_backpack_blue.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 135.0, "s": 0.8, "v": 0.36
+                        },
+                        {
+                            "filter": "contrast", "factor": 2
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/items/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/items/rw_backpack_brown.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 0.0, "s": 0.7, "v": 0.3
+                        },
+                        {
+                            "filter": "contrast", "factor": 2
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/items/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/items/rw_backpack_cyan.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 120.0, "s": 0.8, "v": 0.6
+                        },
+                        {
+                            "filter": "contrast", "factor": 1.5
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/items/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/items/rw_backpack_gray.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 120.0, "s": 0.2, "v": 0.25
+                        },
+                        {
+                            "filter": "contrast", "factor": 2
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/items/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/items/rw_backpack_green.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 80.0, "s": 0.8, "v": 0.32
+                        },
+                        {
+                            "filter": "contrast", "factor": 2
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/items/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/items/rw_backpack_light_blue.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 120.0, "s": 0.7, "v": 1.4
+                        },
+                        {
+                            "filter": "contrast", "factor": 1
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/items/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/items/rw_backpack_lime.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 80.0, "s": 0.9, "v": 0.9
+                        },
+                        {
+                            "filter": "contrast", "factor": 1
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/items/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/items/rw_backpack_magenta.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": -58.0, "s": 0.8, "v": 0.35
+                        },
+                        {
+                            "filter": "contrast", "factor": 2
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/items/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/items/rw_backpack_pink.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": -65.0, "s": 0.5, "v": 0.6
+                        },
+                        {
+                            "filter": "contrast", "factor": 2
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/items/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/items/rw_backpack_purple.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": -65.0, "s": 0.8, "v": 0.3
+                        },
+                        {
+                            "filter": "contrast", "factor": 2
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/items/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/items/rw_backpack_red.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": -25.0, "s": 0.8, "v": 0.4
+                        },
+                        {
+                            "filter": "contrast", "factor": 2
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/items/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/items/rw_backpack_silver.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 120.0, "s": 0.1, "v": 0.6
+                        },
+                        {
+                            "filter": "contrast", "factor": 1.7
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/items/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/items/rw_backpack_white.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 120.0, "s": 0.1, "v": 1.2
+                        },
+                        {
+                            "filter": "contrast", "factor": 1
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/items/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/items/rw_backpack_yellow.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 17, "s": 1, "v": 1.1
+                        },
+                        {
+                            "filter": "contrast", "factor": 1
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/items/rw_backpack_overlay.png"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        {
+            "base_path": "textures/entity/rw_backpack_orange.png",
+            "creates": [
+                {
+                    "path": "textures/entity/rw_backpack_black.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 120.0, "s": 0.1, "v": 0.1
+                        },
+                        {
+                            "filter": "contrast", "factor": 3
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/entity/rw_backpack_blue.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 135.0, "s": 0.8, "v": 0.36
+                        },
+                        {
+                            "filter": "contrast", "factor": 2
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/entity/rw_backpack_brown.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 0.0, "s": 0.7, "v": 0.3
+                        },
+                        {
+                            "filter": "contrast", "factor": 2
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/entity/rw_backpack_cyan.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 120.0, "s": 0.8, "v": 0.6
+                        },
+                        {
+                            "filter": "contrast", "factor": 1.5
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/entity/rw_backpack_gray.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 120.0, "s": 0.2, "v": 0.25
+                        },
+                        {
+                            "filter": "contrast", "factor": 2
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/entity/rw_backpack_green.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 80.0, "s": 0.8, "v": 0.32
+                        },
+                        {
+                            "filter": "contrast", "factor": 2
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/entity/rw_backpack_light_blue.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 120.0, "s": 0.7, "v": 1.4
+                        },
+                        {
+                            "filter": "contrast", "factor": 1
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/entity/rw_backpack_lime.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 80.0, "s": 0.9, "v": 0.9
+                        },
+                        {
+                            "filter": "contrast", "factor": 1
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/entity/rw_backpack_magenta.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": -58.0, "s": 0.8, "v": 0.35
+                        },
+                        {
+                            "filter": "contrast", "factor": 2
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/entity/rw_backpack_pink.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": -65.0, "s": 0.5, "v": 0.6
+                        },
+                        {
+                            "filter": "contrast", "factor": 2
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/entity/rw_backpack_purple.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": -65.0, "s": 0.8, "v": 0.3
+                        },
+                        {
+                            "filter": "contrast", "factor": 2
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/entity/rw_backpack_red.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": -25.0, "s": 0.8, "v": 0.4
+                        },
+                        {
+                            "filter": "contrast", "factor": 2
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/entity/rw_backpack_silver.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 120.0, "s": 0.1, "v": 0.6
+                        },
+                        {
+                            "filter": "contrast", "factor": 1.7
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/entity/rw_backpack_white.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 120.0, "s": 0.1, "v": 1.2
+                        },
+                        {
+                            "filter": "contrast", "factor": 1
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/entity/rw_backpack_yellow.png",
+                    "filters": [
+                        {
+                            "filter": "hsv", "h": 17, "s": 1, "v": 1.1
+                        },
+                        {
+                            "filter": "contrast", "factor": 1
+                        },
+                        {
+                            "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
