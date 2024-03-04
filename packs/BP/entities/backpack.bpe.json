@@ -1,0 +1,98 @@
+{
+    "format_version": "1.20.41",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "roamware:backpack",
+            "is_experimental": false,
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "roamware:despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "inanimate",
+                    "backpack"
+                ]
+            },
+            "minecraft:health": {
+                "value": 8,
+                "max": 8
+            },
+            "minecraft:collision_box": {
+                "height": 0.8,
+                "width": 0.6
+            },
+            "minecraft:inventory": {
+                "additional_slots_per_strength": 0,
+                "can_be_siphoned_from": false,
+                "container_type": "container",
+                "inventory_size": 27,
+                "private": false,
+                "restrict_to_owner": false
+            },
+            "minecraft:nameable": {
+                "allow_name_tag_renaming": true,
+                "always_show": false
+            },
+            "minecraft:interact": {
+                "interactions": [
+                    {
+                        "on_interact": {
+                            "event": "roamware:pickup",
+                            "target": "self",
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_sneaking",
+                                        "subject": "other"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "domain": "hand",
+                                        "value": "name_tag",
+                                        "subject": "other",
+                                        "operator": "not"
+                                    }
+                                ]
+                            }
+                        },
+                        "interact_text": "action.roamware.backpack.pickup"
+                    }
+                ]
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/entities/rw_backpack.json"
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "fall",
+                        "deals_damage": false
+                    }
+                ]
+            },
+            "minecraft:physics": {}
+        },
+        "events": {
+            "roamware:despawn": {
+                "add": {
+                    "component_groups": [
+                        "roamware:despawn"
+                    ]
+                }
+            },
+            "roamware:pickup": {
+                "queue_command": {
+                    "command": [
+                        "scriptevent roamware:pickup"
+                    ]
+                }
+            }
+        }
+    }
+}

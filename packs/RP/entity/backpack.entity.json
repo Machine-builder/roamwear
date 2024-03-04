@@ -1,0 +1,27 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "roamware:backpack",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/rw_backpack"
+      },
+      "geometry": {
+        "default": "geometry.roamware.backpack"
+      },
+      "scripts": {
+        "animate": [
+          "on_ground"
+        ]
+      },
+      "animations": {
+        "on_ground": "animation.roamware.backpack.on_ground"
+      },
+      "render_controllers": [ "controller.render.default" ],
+      "enable_attachables": false
+    }
+  }
+}
