@@ -2,8 +2,8 @@
   "format_version": "1.10.0",
   "minecraft:attachable": {
     "description": {
-      "identifier": "roamware:backpack.attachable",
-      "item": { "roamware:backpack": "1.0" },
+      "identifier": "roamwear:backpack.attachable",
+      "item": { "roamwear:backpack": "1.0" },
       "materials": {
         "default": "entity_alphatest",
         "enchanted": "armor_enchanted"
@@ -13,7 +13,7 @@
         "enchanted": "textures/misc/enchanted_item_glint"
       },
       "geometry": {
-        "default": "geometry.roamware.backpack"
+        "default": "geometry.roamwear.backpack"
       },
       "render_controllers": [
         { "controller.render.armor": "!c.is_first_person" }

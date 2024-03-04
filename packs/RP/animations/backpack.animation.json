@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.roamware.backpack.on_ground": {
+		"animation.roamwear.backpack.on_ground": {
 			"loop": "hold_on_last_frame",
 			"bones": {
 				"body": {

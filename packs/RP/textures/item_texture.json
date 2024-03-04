@@ -2,9 +2,14 @@
     "resource_pack_name": "vanilla",
     "texture_name" : "atlas.items",
     "texture_data": {
-        "roamware:backpack": {
+        "roamwear:backpack": {
             "textures": [
                 "textures/items/rw_backpack"
+            ]
+        },
+        "roamwear:quiver": {
+            "textures": [
+                "textures/items/rw_quiver"
             ]
         }
     }

@@ -2,7 +2,7 @@
     "format_version": "1.20.50",
     "minecraft:item": {
         "description": {
-            "identifier": "roamware:backpack",
+            "identifier": "roamwear:backpack",
             "menu_category": {
                 "category": "equipment",
                 "group": "itemGroup.name.chestplate",
@@ -14,7 +14,7 @@
                 "value": 1
             },
             "minecraft:icon": {
-                "texture": "roamware:backpack"
+                "texture": "roamwear:backpack"
             },
             "minecraft:wearable": {
                 "slot": "slot.armor.chest",

@@ -2,7 +2,7 @@
   "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "roamware:backpack",
+      "identifier": "roamwear:backpack",
       "materials": {
         "default": "entity_alphatest"
       },
@@ -10,7 +10,7 @@
         "default": "textures/entity/rw_backpack"
       },
       "geometry": {
-        "default": "geometry.roamware.backpack"
+        "default": "geometry.roamwear.backpack"
       },
       "scripts": {
         "animate": [
@@ -18,7 +18,7 @@
         ]
       },
       "animations": {
-        "on_ground": "animation.roamware.backpack.on_ground"
+        "on_ground": "animation.roamwear.backpack.on_ground"
       },
       "render_controllers": [ "controller.render.default" ],
       "enable_attachables": false

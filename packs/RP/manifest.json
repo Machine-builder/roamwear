@@ -1,8 +1,8 @@
 {
     "format_version": 2,
     "header": {
-        "description": "Roamware aims to add a collection of useful travel-focused items and systems into Minecraft Bedrock Edition.",
-        "name": "Roamware",
+        "description": "Roamwear aims to add a collection of useful travel-focused items and systems into Minecraft Bedrock Edition.",
+        "name": "Roamwear",
         "uuid": "6a341c55-4f55-4afb-8892-ffd22c32aa20",
         "version": [1, 0, 0],
         "min_engine_version": [ 1, 20, 40 ]

@@ -1,0 +1,20 @@
+{
+    "format_version": "1.20.50",
+    "minecraft:item": {
+        "description": {
+            "identifier": "roamwear:quiver",
+            "menu_category": {
+                "category": "equipment",
+                "is_hidden_in_commands": false
+            }
+        },
+        "components": {
+            "minecraft:max_stack_size": {
+                "value": 1
+            },
+            "minecraft:icon": {
+                "texture": "roamwear:quiver"
+            }
+        }
+    }
+}

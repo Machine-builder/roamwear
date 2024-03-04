@@ -1,2 +1,3 @@
-item.roamware:backpack=Backpack
-action.roamware.backpack.pickup=Pickup Backpack
+item.roamwear:backpack=Backpack
+item.roamwear:quiver=Quiver
+action.roamwear.backpack.pickup=Pickup Backpack

@@ -2,13 +2,13 @@
     "format_version": "1.20.41",
     "minecraft:entity": {
         "description": {
-            "identifier": "roamware:backpack",
+            "identifier": "roamwear:backpack",
             "is_experimental": false,
             "is_spawnable": false,
             "is_summonable": true
         },
         "component_groups": {
-            "roamware:despawn": {
+            "roamwear:despawn": {
                 "minecraft:instant_despawn": {}
             }
         },
@@ -43,7 +43,7 @@
                 "interactions": [
                     {
                         "on_interact": {
-                            "event": "roamware:pickup",
+                            "event": "roamwear:pickup",
                             "target": "self",
                             "filters": {
                                 "all_of": [
@@ -61,7 +61,7 @@
                                 ]
                             }
                         },
-                        "interact_text": "action.roamware.backpack.pickup"
+                        "interact_text": "action.roamwear.backpack.pickup"
                     }
                 ]
             },
@@ -79,17 +79,17 @@
             "minecraft:physics": {}
         },
         "events": {
-            "roamware:despawn": {
+            "roamwear:despawn": {
                 "add": {
                     "component_groups": [
-                        "roamware:despawn"
+                        "roamwear:despawn"
                     ]
                 }
             },
-            "roamware:pickup": {
+            "roamwear:pickup": {
                 "queue_command": {
                     "command": [
-                        "scriptevent roamware:pickup"
+                        "scriptevent roamwear:pickup"
                     ]
                 }
             }

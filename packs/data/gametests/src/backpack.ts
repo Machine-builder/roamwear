@@ -16,11 +16,11 @@ function createNewBackpackId(): string {
 
 function getBackpackId(entity: Entity): string {
     // @ts-ignore
-    return entity.getDynamicProperty("roamware:backpack_id") ?? createNewBackpackId();
+    return entity.getDynamicProperty("roamwear:backpack_id") ?? createNewBackpackId();
 }
 
 function setBackpackId(entity: Entity, backpackId: string) {
-    entity.setDynamicProperty("roamware:backpack_id", backpackId);
+    entity.setDynamicProperty("roamwear:backpack_id", backpackId);
 }
 
 function getBarrelstructureName(backpackId: string): string {
@@ -91,7 +91,7 @@ function pickupBackpack(entity: Entity) {
         block.setPermutation(blockBeforePermutation);
 
         // Spawn an item with the id in the lore text
-        const itemStack = new ItemStack("roamware:backpack", 1);
+        const itemStack = new ItemStack("roamwear:backpack", 1);
         itemStack.setLore(
             [
                 hideLoreString(backpackId),
@@ -141,7 +141,7 @@ function spawnBackpack(player: Player, itemStack: ItemStack) {
     }
 
     // Spawn the backpack entity and set its id property to either the id or undefined
-    const entity = player.dimension.spawnEntity("roamware:backpack", placeAt);
+    const entity = player.dimension.spawnEntity("roamwear:backpack", placeAt);
     const backpackContainer = entity.getComponent(EntityInventoryComponent.componentId)?.container;
     if (backpackContainer === undefined) { moduleLogger.fatal("spawnBackpack backpackContainer was undefined"); return; }
     setBackpackId(entity, backpackId);
@@ -193,14 +193,14 @@ function spawnBackpack(player: Player, itemStack: ItemStack) {
 }
 
 system.afterEvents.scriptEventReceive.subscribe(function(data) {
-    if (data.id !== "roamware:pickup") return;
+    if (data.id !== "roamwear:pickup") return;
     const entity = data.sourceEntity;
     if (entity === undefined) return;
     pickupBackpack(entity);
 })
 
 world.afterEvents.entityHitEntity.subscribe(function(data) {
-    if (data.hitEntity.typeId != "roamware:backpack") return;
+    if (data.hitEntity.typeId != "roamwear:backpack") return;
     if (data.damagingEntity.typeId != "minecraft:player") return;
     if (!data.damagingEntity.isSneaking) return;
     if ((data.hitEntity.getComponent(EntityHealthComponent.componentId)?.currentValue ?? 0) <= 0) return;
@@ -210,7 +210,7 @@ world.afterEvents.entityHitEntity.subscribe(function(data) {
 world.beforeEvents.itemUse.subscribe(function(data) {
     const player = data.source;
     const itemStack = data.itemStack;
-    if (itemStack?.typeId != "roamware:backpack") return;
+    if (itemStack?.typeId != "roamwear:backpack") return;
     if (!player.isSneaking) {
         data.cancel = true;
         moduleLogger.info(`itemUse triggered and player sneaking, spawn a backpack and cancel event`);

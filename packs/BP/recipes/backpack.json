@@ -2,7 +2,7 @@
     "format_version": "1.12",
     "minecraft:recipe_shaped": {
       "description": {
-      "identifier": "roamware:backpack"
+      "identifier": "roamwear:backpack"
       },
       
       "tags": [ "crafting_table" ],
@@ -23,7 +23,7 @@
         }
       },
       "result": {
-        "item": "roamware:backpack",
+        "item": "roamwear:backpack",
         "count": 1
       }
     }

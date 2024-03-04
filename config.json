@@ -1,7 +1,7 @@
 {
 	"$schema": "https://raw.githubusercontent.com/Bedrock-OSS/regolith-schemas/main/config/v1.1.json",
 	"author": "MACHINE_BUILDER",
-	"name": "Roamware",
+	"name": "Roamwear",
 	"packs": {
 		"behaviorPack": "./packs/BP",
 		"resourcePack": "./packs/RP"
@@ -17,9 +17,9 @@
 		"profiles": {
 			"default": {
 				"export": {
-					"bpPath": "%HOMEPATH%/AppData/Roaming/.minecraft_bedrock/installations/YouTube/Latest Release/packageData/development_behavior_packs/Roamware_bp",
+					"bpPath": "%HOMEPATH%/AppData/Roaming/.minecraft_bedrock/installations/YouTube/Latest Release/packageData/development_behavior_packs/Roamwear_bp",
 					"readOnly": false,
-					"rpPath": "%HOMEPATH%/AppData/Roaming/.minecraft_bedrock/installations/YouTube/Latest Release/packageData/development_resource_packs/Roamware_rp",
+					"rpPath": "%HOMEPATH%/AppData/Roaming/.minecraft_bedrock/installations/YouTube/Latest Release/packageData/development_resource_packs/Roamwear_rp",
 					"target": "exact"
 				},
 				"filters": [
