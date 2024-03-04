@@ -9,10 +9,9 @@ type ItemStackAndSlot = {
 }
 
 function getQuiverItem(container: Container): ItemStackAndSlot | undefined {
-    for (let checkSlot of [8, 17, 20]) {
+    for (let checkSlot of [8, 17, 26, 35]) {
         if (checkSlot >= container.size) continue;
         const itemStack = container.getItem(checkSlot);
-        moduleLogger.debug(itemStack?.typeId);
         if (itemStack?.typeId == "roamwear:quiver") return {
             itemStack: itemStack,
             slot: checkSlot
@@ -37,7 +36,10 @@ function updatePlayerQuiver(player: Player) {
     const quiver = getQuiverItem(container);
     if (quiver === undefined) return;
 
-    world.sendMessage(String(quiver.slot));
+    // Figure out where to put arrows. They can go anywhere in the top row of the inventory.
+    // If an inventory slot is empty, or is arrows, that slot is selected as the arrow slot.
+
+    moduleLogger.debug(quiver);
 }
 
 system.runInterval(function() {
