@@ -1,0 +1,24 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "Roamware aims to add a collection of useful travel-focused items and systems into Minecraft Bedrock Edition.",
+        "name": "Roamware",
+        "uuid": "6a341c55-4f55-4afb-8892-ffd22c32aa20",
+        "version": [1, 0, 0],
+        "min_engine_version": [ 1, 20, 40 ]
+    },
+    "modules": [
+        {
+            "description": "",
+            "type": "resources",
+            "uuid": "7a9b7268-3002-4a02-9840-ad97560bcd5f",
+            "version": [1, 0, 0]
+        }
+    ],
+    "dependencies": [
+        {
+            "uuid": "c8c21f57-ef76-43cc-b718-e61c48696907",
+            "version": [1, 0, 0]
+        }
+    ]
+}

@@ -1,21 +1,41 @@
 {
 	"$schema": "https://raw.githubusercontent.com/Bedrock-OSS/regolith-schemas/main/config/v1.1.json",
-	"author": "Your name",
-	"name": "Project name",
+	"author": "MACHINE_BUILDER",
+	"name": "Roamware",
 	"packs": {
 		"behaviorPack": "./packs/BP",
 		"resourcePack": "./packs/RP"
 	},
 	"regolith": {
 		"dataPath": "./packs/data",
-		"filterDefinitions": {},
+		"filterDefinitions": {
+			"gametests": {
+				"url": "github.com/Bedrock-OSS/regolith-filters",
+				"version": "1.5.3"
+			}
+		},
 		"profiles": {
 			"default": {
 				"export": {
+					"bpPath": "%HOMEPATH%/AppData/Roaming/.minecraft_bedrock/installations/YouTube/Latest Release/packageData/development_behavior_packs/Roamware_bp",
 					"readOnly": false,
-					"target": "development"
+					"rpPath": "%HOMEPATH%/AppData/Roaming/.minecraft_bedrock/installations/YouTube/Latest Release/packageData/development_resource_packs/Roamware_rp",
+					"target": "exact"
 				},
-				"filters": []
+				"filters": [
+					{
+						"filter": "gametests",
+						"settings": {
+							"buildOptions": {
+								"bundle": true,
+								"minify": false
+							},
+							"modules": [
+								"@minecraft/server@1.8.0"
+							]
+						}
+					}
+				]
 			}
 		}
 	}
