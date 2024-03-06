@@ -9,6 +9,22 @@
 					"position": [0, -12, 3]
 				}
 			}
+		},
+		"animation.roamwear.backpack.movement": {
+			"loop": true,
+			"bones": {
+				"backpack": {
+					"rotation": ["-variable.bounce_offset * 0.1", "v.bounce_tcos * 0.5", 0],
+					"position": [0, "variable.bounce_offset*0.005", 0]
+				},
+				"mug": {
+					"rotation": ["-variable.bounce*0.1", 0, "variable.bounce*0.1"],
+					"position": [0, "variable.bounce*0.01", 0]
+				},
+				"sack": {
+					"position": [0, "variable.bounce*0.006", 0]
+				}
+			}
 		}
 	}
 }

@@ -1,7 +1,7 @@
 
 
 import { Logger } from "@bedrock-oss/bedrock-boost";
-import { BlockInventoryComponent, BlockPermutation, Container, Entity, EntityEquippableComponent, EntityHealthComponent, EntityInventoryComponent, EntityItemComponent, EquipmentSlot, ItemStack, Player, Vector3, system, world } from "@minecraft/server";
+import { BlockInventoryComponent, BlockPermutation, Container, Dimension, Entity, EntityEquippableComponent, EntityHealthComponent, EntityInventoryComponent, EntityItemComponent, EquipmentSlot, ItemStack, Player, Vector3, system, world } from "@minecraft/server";
 import { structureLoad, structureSave } from "./mlib/structure";
 import { createRandomStringId } from "./mlib/random";
 import { hideLoreString, unhideLoreString } from "./mlib/loreText";
@@ -33,6 +33,26 @@ const BackpackItemIds = [
 const SoundPlacement = "armor.equip_leather";
 const SoundPickup = "random.pop";
 
+const DisallowedItemsInBackpacks = BackpackItemIds.concat([
+    "minecraft:undyed_shulker_box",
+    "minecraft:white_shulker_box",
+    "minecraft:orange_shulker_box",
+    "minecraft:magenta_shulker_box",
+    "minecraft:light_blue_shulker_box",
+    "minecraft:yellow_shulker_box",
+    "minecraft:lime_shulker_box",
+    "minecraft:pink_shulker_box",
+    "minecraft:gray_shulker_box",
+    "minecraft:silver_shulker_box",
+    "minecraft:cyan_shulker_box",
+    "minecraft:purple_shulker_box",
+    "minecraft:blue_shulker_box",
+    "minecraft:brown_shulker_box",
+    "minecraft:green_shulker_box",
+    "minecraft:red_shulker_box",
+    "minecraft:black_shulker_box",
+])
+
 function getBackpackColorNameFromItemTypeId(backpackTypeId: string) {
     return backpackTypeId.slice(18);
 }
@@ -58,6 +78,24 @@ function transferAllItems(containerA: Container, containerB: Container) {
     for (let i=0; i<Math.min(containerA.size, containerB.size); i++) {
         containerB.setItem(i, containerA.getItem(i));
         containerA.setItem(i, undefined);
+    }
+}
+
+function transferAllItemsFiltered(containerA: Container, containerB: Container, blacklist: String[]) {
+    for (let i=0; i<Math.min(containerA.size, containerB.size); i++) {
+        let itemA = containerA.getItem(i);
+        if (blacklist.includes(itemA?.typeId ?? "")) continue;
+        containerB.setItem(i, containerA.getItem(i));
+        containerA.setItem(i, undefined);
+    }
+}
+
+function dropAllItems(container: Container, dimension: Dimension, location: Vector3) {
+    for (let i=0; i<container.size; i++) {
+        const itemStack = container.getItem(i);
+        if (itemStack === undefined) continue;
+        dimension.spawnItem(itemStack, location);
+        container.setItem(i, undefined);
     }
 }
 
@@ -90,7 +128,10 @@ function pickupBackpack(entity: Entity) {
         if (blockContainer === undefined) { moduleLogger.fatal("pickupBackpack blockContainer was undefined"); return; }
 
         // Transfer all items from the entity container to the barrel
-        transferAllItems(container, blockContainer);
+        transferAllItemsFiltered(container, blockContainer, DisallowedItemsInBackpacks);
+
+        // Drop any items left in the backpack onto the ground
+        dropAllItems(container, entity.dimension, entity.location);
 
         // Count full slots so we can display this stat in the item lore
         let slotsFull = 0;
@@ -149,7 +190,6 @@ function pickupBackpack(entity: Entity) {
 };
 
 function getBackpackPlacementLocation(player: Player): Vector3 | undefined {
-    let placeAt = player.location;
     const hitResult = player.getBlockFromViewDirection({maxDistance: 7});
     if (hitResult !== undefined) {
         return {

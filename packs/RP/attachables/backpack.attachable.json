@@ -15,6 +15,19 @@
       "geometry": {
         "default": "geometry.roamwear.backpack"
       },
+      "scripts": {
+        "pre_animation": [
+          "variable.bounce_tcos = (math.cos(query.modified_distance_moved * 38.17 + 90) * query.modified_move_speed) * 30;",
+          "variable.bounce_offset = (math.cos(query.modified_distance_moved * 38.17 * 2 - 90) * query.modified_move_speed) * 30;",
+          "variable.bounce = (math.cos(query.modified_distance_moved * 38.17 * 2 - 135) * query.modified_move_speed) * 30;"
+        ],
+        "animate": [
+          "movement"
+        ]
+      },
+      "animations": {
+        "movement": "animation.roamwear.backpack.movement"
+      },
       "render_controllers": [
         { "controller.render.armor": "!c.is_first_person" }
       ]
