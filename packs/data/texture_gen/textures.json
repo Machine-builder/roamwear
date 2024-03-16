@@ -6,7 +6,7 @@
         // Backpack colour variants, both item and entity
 
         {
-            "base_path": "textures/items/rw_backpack_orange.png",
+            "base_path": "textures/items/rw_backpack_coloured.png",
             "creates": [
                 {
                     "path": "textures/items/rw_backpack_black.png",
@@ -135,6 +135,14 @@
                     ]
                 },
                 {
+                    "path": "textures/items/rw_backpack_orange.png",
+                    "filters": [
+                        {
+                            "filter": "overlay", "path": "textures/items/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
                     "path": "textures/items/rw_backpack_pink.png",
                     "filters": [
                         {
@@ -222,7 +230,7 @@
         },
 
         {
-            "base_path": "textures/entity/rw_backpack_orange.png",
+            "base_path": "textures/entity/rw_backpack_coloured.png",
             "creates": [
                 {
                     "path": "textures/entity/rw_backpack_black.png",
@@ -345,6 +353,14 @@
                         {
                             "filter": "contrast", "factor": 2
                         },
+                        {
+                            "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
+                        }
+                    ]
+                },
+                {
+                    "path": "textures/entity/rw_backpack_orange.png",
+                    "filters": [
                         {
                             "filter": "overlay", "path": "textures/entity/rw_backpack_overlay.png"
                         }

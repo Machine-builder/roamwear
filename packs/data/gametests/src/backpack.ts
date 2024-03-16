@@ -1,12 +1,13 @@
 
 
 import { Logger } from "@bedrock-oss/bedrock-boost";
-import { BlockInventoryComponent, BlockPermutation, Container, Dimension, Entity, EntityEquippableComponent, EntityHealthComponent, EntityInventoryComponent, EntityItemComponent, EquipmentSlot, ItemStack, Player, Vector3, system, world } from "@minecraft/server";
+import { BlockInventoryComponent, BlockPermutation, Container, Dimension, Entity, EntityEquippableComponent, EntityHealthComponent, EntityInventoryComponent, EntityItemComponent, EquipmentSlot, GameMode, ItemStack, Player, Vector3, system, world } from "@minecraft/server";
 import { structureLoad, structureSave } from "./mlib/structure";
 import { createRandomStringId } from "./mlib/random";
 import { hideLoreString, unhideLoreString } from "./mlib/loreText";
 import { colorNameToIndex } from "./mlib/color";
 import { playSound } from "./mlib/playSound";
+import { isGamemode } from "./mlib/testGamemode";
 
 const moduleLogger = Logger.getLogger("backpack.ts");
 
@@ -310,7 +311,10 @@ world.beforeEvents.itemUse.subscribe(function(data) {
     if (!player.isSneaking) {
         const placementLocation = getBackpackPlacementLocation(player);
         if (placementLocation !== undefined) {
-            data.cancel = true;
+            if (isGamemode(player, GameMode.survival) || isGamemode(player, GameMode.adventure)) {
+                // Cancelling the event in creative or spectator leads to annoying inv bug
+                data.cancel = true;
+            }
             moduleLogger.info(`itemUse triggered, player sneaking, and placement found. Spawn a backpack and cancel event`);
             // Place the backpack down
             system.run(() => {

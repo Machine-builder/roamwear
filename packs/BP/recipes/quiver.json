@@ -1,0 +1,28 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "roamwear:quiver"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            " SL",
+            "SL ",
+            "L  "
+        ],
+        "key": {
+            "L": {
+                "item": "minecraft:leather"
+            },
+            "S": {
+                "item": "minecraft:string"
+            }
+        },
+        "result": {
+            "item": "roamwear:quiver",
+            "count": 1
+        }
+    }
+}

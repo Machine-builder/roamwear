@@ -40,7 +40,7 @@
 						"settings": {
 							"buildOptions": {
 								"bundle": true,
-								"minify": false
+								"minify": true
 							},
 							"modules": [
 								"@minecraft/server@1.8.0"
