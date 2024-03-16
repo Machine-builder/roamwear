@@ -16,6 +16,8 @@ item.roamwear:backpack_green=Green Backpack
 item.roamwear:backpack_red=Red Backpack
 item.roamwear:backpack_black=Black Backpack
 
+entity.roamwear.backpack.name=Backpack
+
 action.roamwear.backpack.pickup=Pickup Backpack
 action.roamwear.backpack.dye=Dye Backpack
 
